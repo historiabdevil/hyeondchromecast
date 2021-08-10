@@ -12,12 +12,15 @@ playerManager.addEventListener(
 playerManager.setMessageInterceptor(
     cast.framework.messages.MessageType.LOAD, loadRequestData => {
         console.log(loadRequestData);
-        playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
-        playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
+
         return loadRequestData;
     }
 );
 
+playerManager.setMediaPlaybackInfoHandler((loadRequestData, playbackConfig) =>{
+    playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
+    playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
+})
 
 context.start({
     playerManager: playerManager,
