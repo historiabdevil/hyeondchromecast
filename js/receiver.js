@@ -1,6 +1,8 @@
 const LOG_RECEIVER_TAG = "RECV_CHROME";
 const context = cast.framework.CastReceiverContext.getInstance();
 const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
+castDebugLogger.setEnabled(true);
+castDebugLogger.showDebugLogs(true);
 const playerManager = context.getPlayerManager();
 const playbackConfig = new cast.framework.PlaybackConfig();
 cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
@@ -12,6 +14,8 @@ playerManager.addEventListener(
 
 playerManager.setMessageInterceptor(
     cast.framework.messages.MessageType.LOAD, loadRequestData => {
+        castDebugLogger.debug(LOG_RECEIVER_TAG,
+            JSON.stringify(loadRequestData));
         console.log(loadRequestData);
         playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
         playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
