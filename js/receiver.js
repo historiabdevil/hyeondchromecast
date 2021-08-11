@@ -278,11 +278,6 @@ controls.assignButton(
     cast.framework.ui.ControlsSlot.SLOT_SECONDARY_2,
     cast.framework.ui.ControlsButton.QUEUE_NEXT
 );
-playbackConfig.licenseUrl = 'https://license.pallycon.com/ri/licenseManager.do';
-playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
-playbackConfig.licenseRequestHandler = requestInfo => {
-    requestInfo.withCredentials = true;
-};
 
 context.start({
     queue: new CastQueue(),
@@ -291,11 +286,4 @@ context.start({
         cast.framework.messages.Command.QUEUE_PREV |
         cast.framework.messages.Command.QUEUE_NEXT |
         cast.framework.messages.Command.STREAM_TRANSFER
-});
-
-context.getPlayerManager().setMediaPlaybackInfoHandler((loadRequest, playbackConfig) => {
-    if (loadRequest.media.customData && loadRequest.media.customData.licenseUrl) {
-        playbackConfig.licenseUrl = loadRequest.media.customData.licenseUrl;
-    }
-    return playbackConfig;
 });
