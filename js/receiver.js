@@ -2,13 +2,13 @@ window.onload = function () {
     cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
     const LOG_RECEIVER_TAG = "RECV_CHROME";
     const context = cast.framework.CastReceiverContext.getInstance();
-    // const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
-    // castDebugLogger.loggerLevelByEvents = {
-    //     'cast.framework.events.category.CORE': cast.framework.LoggerLevel.INFO,
-    //     'cast.framework.events.EventType.MEDIA_STATUS': cast.framework.LoggerLevel.DEBUG
-    // }
-    // castDebugLogger.setEnabled(true);
-    // castDebugLogger.showDebugLogs(true);
+    const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
+    castDebugLogger.loggerLevelByEvents = {
+        'cast.framework.events.category.CORE': cast.framework.LoggerLevel.INFO,
+        'cast.framework.events.EventType.MEDIA_STATUS': cast.framework.LoggerLevel.DEBUG
+    }
+    castDebugLogger.setEnabled(true);
+    castDebugLogger.showDebugLogs(true);
     const playerManager = context.getPlayerManager();
     const playbackConfig = new cast.framework.PlaybackConfig();
 
@@ -20,8 +20,8 @@ window.onload = function () {
 
     playerManager.setMessageInterceptor(
         cast.framework.messages.MessageType.LOAD, loadRequestData => {
-            // castDebugLogger.debug(LOG_RECEIVER_TAG,
-            //     JSON.stringify(loadRequestData));
+            castDebugLogger.info(LOG_RECEIVER_TAG,
+                JSON.stringify(loadRequestData));
             console.log(loadRequestData);
             playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
             playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
