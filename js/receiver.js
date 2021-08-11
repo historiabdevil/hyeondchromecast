@@ -14,9 +14,9 @@ window.onload = function () {
 
     playbackConfig.licenseUrl = 'https://license-global.pallycon.com/ri/licenseManager.do?pallycon-customdata-v2=eyJkcm1fdHlwZSI6IldpZGV2aW5lIiwic2l0ZV9pZCI6IkpLUEIiLCJ1c2VyX2lkIjoiY2F0ZW5vaWR0ZXN0IiwiY2lkIjoiMjAxOTA5MDktZXYwMDl5dXEiLCJ0b2tlbiI6ImZ3Zk1SODAxU0RsNEhkMDBDZGtLMkJrWUQ0cTBlSmJDU2w4emZBQXRZTHJVM2ZzaXVtbmNtcm0wS051OWVxSXpRTlhldkgyck1Mb2YzT3MySmxsRldUZFA2NWl5d2lMZ0VWakQwVHllVGx3M2N1ODNsbVhhTVVONERiaEtGWURGSXhhK2grXC9vSjNsTkVjb0hOcTF2UGVJZ1prYm1cL0JWZDNhQ0lERDZxdDY3WURzZ1pnaWlKUWFZSzBiOFZKSnlQIiwidGltZXN0YW1wIjoiMjAyMS0wOC0xMVQwNjoyMDo0N1oiLCJoYXNoIjoiK09CUkFQMVlQS1AxMGVsd3lwSUFOXC9XXC9qZ3ZnVkx0NjIxMHZOcEZ0SlhRPSJ9';
     playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
-    playbackConfig.licenseRequestHandler = requestInfo => {
-        requestInfo.withCredentials = true;
-    };
+    // playbackConfig.licenseRequestHandler = requestInfo => {
+    //     requestInfo.withCredentials = true;
+    // };
 
     playerManager.addEventListener(
         cast.framework.events.EventType.ERROR, (event) => {
@@ -36,9 +36,9 @@ window.onload = function () {
     playerManager.setMediaPlaybackInfoHandler((loadRequestData, playbackConfig) => {
         playbackConfig.licenseUrl = 'https://license-global.pallycon.com/ri/licenseManager.do?pallycon-customdata-v2=eyJkcm1fdHlwZSI6IldpZGV2aW5lIiwic2l0ZV9pZCI6IkpLUEIiLCJ1c2VyX2lkIjoiY2F0ZW5vaWR0ZXN0IiwiY2lkIjoiMjAxOTA5MDktZXYwMDl5dXEiLCJ0b2tlbiI6ImZ3Zk1SODAxU0RsNEhkMDBDZGtLMkJrWUQ0cTBlSmJDU2w4emZBQXRZTHJVM2ZzaXVtbmNtcm0wS051OWVxSXpRTlhldkgyck1Mb2YzT3MySmxsRldUZFA2NWl5d2lMZ0VWakQwVHllVGx3M2N1ODNsbVhhTVVONERiaEtGWURGSXhhK2grXC9vSjNsTkVjb0hOcTF2UGVJZ1prYm1cL0JWZDNhQ0lERDZxdDY3WURzZ1pnaWlKUWFZSzBiOFZKSnlQIiwidGltZXN0YW1wIjoiMjAyMS0wOC0xMVQwNjoyMDo0N1oiLCJoYXNoIjoiK09CUkFQMVlQS1AxMGVsd3lwSUFOXC9XXC9qZ3ZnVkx0NjIxMHZOcEZ0SlhRPSJ9';
         playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
-        playbackConfig.licenseRequestHandler = requestInfo => {
-            requestInfo.withCredentials = true;
-        };
+        // playbackConfig.licenseRequestHandler = requestInfo => {
+        //     requestInfo.withCredentials = true;
+        // };
     })
 
     const controls = cast.framework.ui.Controls.getInstance();
