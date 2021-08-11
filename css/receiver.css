@@ -7,3 +7,11 @@ cast-media-player {
     --splash-image: url('https://catenoid.net/ko/img/visual_img01.png');
     --splash-size: cover;
 }
+#debugDiv {
+    position: static;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    color: white;
+    background-color: black;
+}
