@@ -1,4 +1,6 @@
+'use strict';
 // cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
+
 const LOG_RECEIVER_TAG = "RECV_CHROME";
 const context = cast.framework.CastReceiverContext.getInstance();
 const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
