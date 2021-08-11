@@ -1,4 +1,5 @@
-window.onload = function () {
+
+window.onload = function() {
     cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
     const LOG_RECEIVER_TAG = "RECV_CHROME";
     const context = cast.framework.CastReceiverContext.getInstance();
@@ -23,7 +24,7 @@ window.onload = function () {
             castDebugLogger.info(LOG_RECEIVER_TAG,
                 JSON.stringify(loadRequestData));
             console.log(loadRequestData);
-            playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
+            playbackConfig.licenseUrl = loadRequestData.media.customData['license_url'];
             playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
             playbackConfig.licenseRequestHandler = requestInfo => {
                 requestInfo.withCredentials = true;
@@ -33,7 +34,7 @@ window.onload = function () {
     );
 
     playerManager.setMediaPlaybackInfoHandler((loadRequestData, playbackConfig) => {
-        playbackConfig.licenUrl = loadRequestData.media.customData['license_url'];
+        playbackConfig.licenseUrl = loadRequestData.media.customData['license_url'];
         playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
         playbackConfig.licenseRequestHandler = requestInfo => {
             requestInfo.withCredentials = true;
