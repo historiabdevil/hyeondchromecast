@@ -1,3 +1,4 @@
+cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
 const LOG_RECEIVER_TAG = "RECV_CHROME";
 const context = cast.framework.CastReceiverContext.getInstance();
 const castDebugLogger = cast.debug.CastDebugLogger.getInstance();
@@ -9,7 +10,7 @@ castDebugLogger.setEnabled(true);
 castDebugLogger.showDebugLogs(true);
 const playerManager = context.getPlayerManager();
 const playbackConfig = new cast.framework.PlaybackConfig();
-cast.framework.CastReceiverContext.getInstance().setLoggerLevel(cast.framework.LoggerLevel.DEBUG);
+
 playerManager.addEventListener(
     cast.framework.events.EventType.ERROR, (event) => {
         if (event && event.detailedErrorCode == 905) {
