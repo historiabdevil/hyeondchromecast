@@ -24,7 +24,7 @@ window.onload = function() {
             castDebugLogger.info(LOG_RECEIVER_TAG,
                 JSON.stringify(loadRequestData));
             console.log(loadRequestData);
-            playbackConfig.licenseUrl = loadRequestData.media.customData['license_url'];
+            playbackConfig.licenseUrl = loadRequestData.media.customData.license_url;
             playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
             playbackConfig.licenseRequestHandler = requestInfo => {
                 requestInfo.withCredentials = true;
@@ -34,7 +34,7 @@ window.onload = function() {
     );
 
     playerManager.setMediaPlaybackInfoHandler((loadRequestData, playbackConfig) => {
-        playbackConfig.licenseUrl = loadRequestData.media.customData['license_url'];
+        playbackConfig.licenseUrl = loadRequestData.media.customData.license_url;
         playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
         playbackConfig.licenseRequestHandler = requestInfo => {
             requestInfo.withCredentials = true;
