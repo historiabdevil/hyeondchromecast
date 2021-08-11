@@ -261,6 +261,11 @@ controls.assignButton(
   cast.framework.ui.ControlsSlot.SLOT_SECONDARY_2,
   cast.framework.ui.ControlsButton.QUEUE_NEXT
 );
+playbackConfig.licenseUrl = 'https://license.pallycon.com/ri/licenseManager.do';
+playbackConfig.protectionSystem = cast.framework.ContentProtection.WIDEVINE;
+playbackConfig.licenseRequestHandler = requestInfo => {
+  requestInfo.withCredentials = true;
+};
 
 context.start({
   queue: new CastQueue(),
