@@ -90,6 +90,8 @@ window.onload = function () {
             cast.framework.messages.Command.QUEUE_NEXT |
             cast.framework.messages.Command.STREAM_TRANSFER
     });
+    castDebugLogger.info(LOG_RECEIVER_TAG,
+        'CAST START');
     context.getPlayerManager().setMediaPlaybackInfoHandler((loadRequest, playbackConfig) => {
         if (loadRequest.media.customData && loadRequest.media.customData.licenseUrl) {
             playbackConfig.licenseUrl = loadRequest.media.customData['license_url'];
