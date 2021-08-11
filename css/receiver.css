@@ -1,9 +1,9 @@
 body {
-    --playback-logo-image: url('http://some/image.png');
+    --playback-logo-image: url('https://catenoid.net/ko/img/logo.png');
 }
 cast-media-player {
     --theme-hue: 100;
     --progress-color: rgb(0, 255, 0);
-    --splash-image: url('http://some/image.png');
+    --splash-image: url('https://catenoid.net/ko/img/visual_img01.png');
     --splash-size: cover;
 }
